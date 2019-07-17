@@ -130,7 +130,7 @@ class Transcription:
             # ]
             # w.writerow(row)
         # return buf.getvalue()
-        return buf.getvalue()
+        return res
 
     def stats(self):
         counts = defaultdict(int)
