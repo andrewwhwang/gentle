@@ -113,17 +113,23 @@ class Transcription:
         '''
         if not self.words:
             return ''
-        buf = io.StringIO()
-        w = csv.writer(buf)
+        # buf = io.StringIO()
+        # w = csv.writer(buf)
+        res = []
         for X in self.words:
             if X.case not in (Word.SUCCESS, Word.NOT_FOUND_IN_AUDIO):
                 continue
-            row = [X.word,
-                X.alignedWord,
-                X.start,
-                X.end
-            ]
-            w.writerow(row)
+            res.append((X.word,
+                        X.alignedWord,
+                        X.start,
+                        X.end))
+            # row = [X.word,
+            #     X.alignedWord,
+            #     X.start,
+            #     X.end
+            # ]
+            # w.writerow(row)
+        # return buf.getvalue()
         return buf.getvalue()
 
     def stats(self):
